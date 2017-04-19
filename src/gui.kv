@@ -1,0 +1,89 @@
+#: import main Gui
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+
+MainGUI:
+
+<MainGUI>:
+    orientation: "horizontal"
+    download_list: download_list_view
+    padding: 10
+
+    BoxLayout:
+        spacing: 10
+        orientation: "vertical"
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: '40dp'
+
+            Label:
+                text: 'Download Location Here'
+                color: 0,0,0,1
+                canvas.before:
+                    Color:
+                        rgba: 1,1,1,1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            Button:
+                size_hint_x: None
+                text: 'Browse'
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: '40dp'
+
+            Label:
+                text_size: self.size
+                valign: 'middle'
+                text: 'Export Location Here'
+                color: 0,0,0,1
+                canvas.before:
+                    Color:
+                        rgba: 1,1,1,1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            Button:
+                size_hint_x: None
+                text: 'Browse'
+
+        FloatLayout:
+            Label:
+                text_size: self.size
+                text: "Styles:"
+                font_size: 40
+                bold: 'true'
+                pos_hint: {"x": 0.1, "y": 0.1}
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            spacing: 20
+
+            Button:
+                text: 'Style 1'
+            Button:
+                text: 'Style 2'
+            Button:
+                text: 'Style 3'
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 0.5
+
+        Label:
+            size_hint_y: None
+            height: '40dp'
+            text: "Finished Downloads Here"
+
+        ListView:
+            id: download_list_view
+            adapter:
+                ListAdapter(data=["Finished Visual 1", "Finished Visual 2"], cls=main.DownloadList)
+
+
