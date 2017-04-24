@@ -2,7 +2,6 @@ import moviepy
 import moviepy.editor as mpy
 
 import numpy
-import cv2
 import PIL
 from PIL import Image
 
@@ -11,8 +10,8 @@ from PIL import Image
 
 
 
-hight = 1920
-width = 1080
+hight = 640
+width = 480
 
 def GenerateFrame(pitch):
 		

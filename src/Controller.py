@@ -1,7 +1,7 @@
 import moviepy
 import moviepy.editor as mpy
 import Parser as P
-import FrameGenerator
+import FrameGenerator as F
 
 
 # update    = ""
@@ -36,10 +36,16 @@ path = "../test_data/MindsEye_-_This_or_That.mp3"
 test = P.Parser()
 features = test.getSamples(path)
 
-frames = GenerateFrames(features)
+frames = F.GenerateAllFrames(features)
 
 clip = mpy.ImageSequenceClip(frames, fps=28)
 clip.write_videofile("movie.mp4", fps=28)
+
+vclip = mpy.VideoFileClip("movie.mp4")
+audioClip = mpy.AudioFileClip(path)
+vclip2 = vclip.set_audio(audioClip)
+
+vclip2.write_videofile("movie.mp4", fps=28)
 
 
 
