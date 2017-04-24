@@ -1,3 +1,6 @@
+import moviepy
+import moviepy.editor as mpy
+
 import numpy
 import cv2
 import PIL
@@ -53,23 +56,18 @@ def GenerateAllFrames(features):
 
 def test():
 	array = []
-	for x in range(-100, 200):
-		array.append(x)
+	for x in range(-100, 9500):
+		if x % 2 == 0:
+			array.append(x)
 	frames = GenerateAllFrames(array)
-	video = cv2.VideoWriter('video.avi',-1,60,(width,hight))
 	
 
-	for frame in frames:
-		video.write(frame)
-		#video.write(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
+	clip = mpy.ImageSequenceClip(frames, fps=60)
 
-
-	cv2.destroyAllWindows()
-	video.release()
+	clip.write_videofile("movie.mp4", fps=60)
 
 
 
-test()
 
 
 
