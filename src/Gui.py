@@ -45,15 +45,21 @@ class MainGUI(BoxLayout):
         self._popup.open()
 
     def download_location(self, path, filename):
-        self.downloadtext = path
-        self.dismiss_popup()
+        if(len(filename) == 0):
+            self.downloadtext = 'Please pick a file'
+            self.dismiss_popup()
+        else:
+            self.downloadtext = os.path.join(path,filename[0])
+            if(self.downloadtext.rfind("/mp4") == -1):
+                self.downloadtext = 'NOT A VALID FILE(NEED .mp3 FILE)'
+            self.dismiss_popup()
 
     def export_load(self):
         content = DownloadDialog(load=self.export_location, cancel=self.dismiss_popup)
         self._popup = Popup(title="Select Export Location", content = content,size_hint=(0.9,0.9))
         self._popup.open()
 
-    def export_location(self,path,filename):
+    def export_location(self,path,file):
         self.exporttext = path
         self.dismiss_popup()
 
