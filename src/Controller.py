@@ -1,4 +1,3 @@
-import moviepy.editor as mpy
 import Parser as p
 import FrameGenerator as f
 import Combine as c
