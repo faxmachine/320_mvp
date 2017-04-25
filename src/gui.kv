@@ -20,7 +20,7 @@ MainGUI:
 
             Label:
                 text: root.downloadtext
-                color: 0,0,0,1
+                color: root.downloadcolor
                 canvas.before:
                     Color:
                         rgba: 1,1,1,1
@@ -40,7 +40,7 @@ MainGUI:
 
             Label:
                 text: root.exporttext
-                color: 0,0,0,1
+                color: root.exportcolor
                 canvas.before:
                     Color:
                         rgba: 1,1,1,1
@@ -58,7 +58,7 @@ MainGUI:
                 text_size: self.size
                 id: stylelabel
                 text: root.stylename
-
+                color: root.stylecolor
 
 
                 font_size: 40
@@ -89,9 +89,16 @@ MainGUI:
             text: "Finished Downloads Here"
 
         ListView:
+            size_hint_y: None
             id: download_list_view
             adapter:
-                ListAdapter(data=["Finished Visual 1", "Finished Visual 2"], cls=main.DownloadList)
+                ListAdapter(data=[], cls=main.DownloadList)
+            height: '400dp'
+        Button:
+            size_hint_y: None
+            text: "Launch Visual"
+            height: '30dp'
+
 
         FloatLayout:
             Button:
@@ -102,6 +109,7 @@ MainGUI:
                 font_size: 30
                 color: 0.20, 0.80, 0.20 ,1
                 pos_hint: {"x": .65, "y": .05}
+                on_release: root.gopress()
 
 
 <DownloadDialog>:
