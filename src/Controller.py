@@ -1,26 +1,23 @@
 import moviepy.editor as mpy
-from moviepy.editor import *
-import Parser as P
-import FrameGenerator as F
+import Parser as p
+import FrameGenerator as f
+import Combine as c
 
 
-path = "../test_data/MindsEye_-_This_or_That.mp3"
-audioClip = mpy.AudioFileClip(path)
+musicFilePath = "../test_data/MindsEye_-_This_or_That.mp3"
+framesPerSecond = 29
+m = 3
 
-test = P.Parser()
-features = test.getSamples(path)
+
+
+# Parses the mp3 file and extracts features
+features = p.getSamples(musicFilePath, m)
 
 # Generates frames from output of parser
-frames = F.GenerateAllFrames(features)
+frames = f.GenerateAllFrames(features)
 
-# Creates a video from array of frames
-clip = mpy.ImageSequenceClip(frames, fps=29)
-
-# Sets the audio to the video
-clip = clip.set_audio(audioClip)
-
-# Writes the final video to local machine
-clip.write_videofile("movie.mp4", fps=29)
+# Combines mp3 and frames into a video output
+success = c.createMP4(musicFilePath, frames, framesPerSecond)
 
 
 
