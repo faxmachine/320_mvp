@@ -24,19 +24,13 @@ class Parser:
 				pitch = pitcher(samples)[0]
 				print(pitch)
 				sampleArray.append(pitch)
-				
+
 			if read < hop_size:
 				break # end of file reached
 
 		fmt_string = "read {:d} frames at {:d}Hz from {:s}"
-		
 
 		print(len(sampleArray))
 		return sampleArray
 
 
-# test
-
-path = "../test_data/MindsEye_-_This_or_That.mp3"
-test = Parser()
-features = test.getSamples(path)

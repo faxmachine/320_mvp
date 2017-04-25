@@ -1,51 +1,32 @@
 import moviepy
 import moviepy.editor as mpy
+from moviepy.editor import *
 import Parser as P
 import FrameGenerator as F
 
 
-# update    = ""
-
-# # UILayer
-# musicFile  = getMusicFile
-# style      = getStyle
-
-# # Parser
-# update     = "Getting Samples"
-# samples    = getSamples(musicFile)
-
-# # Generate Frames
-# update     = "Getting Frames"
-# frames     = getFrames(samples, style)
-
-# # Combine
-# update     = "Redering Video"
-# finalVideo = createMP4(musicFile, frames)
-# update     = ""
-
-# if finalVideo is False:
-
-# 	update = "Video could not be rendered :'("
-
-# else:
-
-	# update = "Done"
-
-
 path = "../test_data/MindsEye_-_This_or_That.mp3"
+audioClip = mpy.AudioFileClip(path)
+
 test = P.Parser()
 features = test.getSamples(path)
 
+# Generates frames from output of parser
 frames = F.GenerateAllFrames(features)
 
-clip = mpy.ImageSequenceClip(frames, fps=28)
-clip.write_videofile("movie.mp4", fps=28)
+# Creates a video from array of frames
+clip = mpy.ImageSequenceClip(frames, fps=29)
 
-vclip = mpy.VideoFileClip("movie.mp4")
-audioClip = mpy.AudioFileClip(path)
-vclip2 = vclip.set_audio(audioClip)
+# Sets the audio to the video
+clip = clip.set_audio(audioClip)
 
-vclip2.write_videofile("movie.mp4", fps=28)
+# Writes the final video to local machine
+clip.write_videofile("movie.mp4", fps=29)
+
+
+
+
+
 
 
 
