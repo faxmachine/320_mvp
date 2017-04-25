@@ -1,6 +1,4 @@
-import moviepy
 import moviepy.editor as mpy
-
 import numpy
 import PIL
 from PIL import Image

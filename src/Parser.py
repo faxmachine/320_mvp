@@ -2,7 +2,6 @@
 # consider pydub for getting samplerate
 import aubio
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 class Parser:
