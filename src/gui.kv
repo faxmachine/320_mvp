@@ -34,25 +34,25 @@ MainGUI:
                 text: 'Browse'
                 on_release: root.download_load()
 
-        BoxLayout:
-            orientation: "horizontal"
-            size_hint_y: None
-            height: '40dp'
+        #BoxLayout:
+        #    orientation: "horizontal"
+        #    size_hint_y: None
+        #    height: '40dp'
 
-            Label:
-                text: root.exporttext
-                color: root.exportcolor
-                canvas.before:
-                    Color:
-                        rgba: 1,1,1,1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
+        #    Label:
+        #        text: root.exporttext
+        #        color: root.exportcolor
+        #        canvas.before:
+        #            Color:
+        #                rgba: 1,1,1,1
+        #            Rectangle:
+        #                pos: self.pos
+        #                size: self.size
 
-            Button:
-                size_hint_x: None
-                text: 'Browse'
-                on_release: root.export_load()
+         #   Button:
+         #       size_hint_x: None
+         #       text: 'Browse'
+         #       on_release: root.export_load()
 
         FloatLayout:
             Label:

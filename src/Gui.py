@@ -9,7 +9,6 @@ from kivy.uix.popup import Popup
 from kivy.factory import Factory
 
 import inspect, os
-import Controller as c
 
 
 Config.set('input', 'mouse', 'mouse, multitouch_on_demand')
