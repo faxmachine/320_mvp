@@ -2,33 +2,35 @@ import moviepy.editor as mpy
 import numpy
 import PIL
 from PIL import Image
+from math import sin
 
-hight = 640
+height = 640
 width = 480
 
 def GenerateFrame(pitch):	
 	R = 0
-	G = 0
-	B = 0
+	G = 100
+	B = 50
 
-	if pitch > 9180:
-		R = 255
-		G = 255
-		B = 255
+	if pitch > 5000:
+		R = (pitch ** 2) % 255
+		G = (pitch * 255) % 255
+		B = int((1/pitch) % 255)
 
-	if pitch > 4590 and pitch <= 9180:
+	if pitch > 4590 and pitch <= 6000:
 		val = int(pitch / 36)
-		R = val
-		G = 255 - val
-		B = 0
+		R = (pitch) % 255
+		G = (pitch ** 2) % 255
+		B = (pitch) % 255
 
-	if pitch > 0 and pitch <= 4590:
-		val = int(pitch / 18)
-		R = 0
-		G = val
-		B = 255 - val
+	if pitch > 0 and pitch <= 1590:
+		R = int((1/pitch) % 255)
+		G = (pitch) * 255
+		B = (pitch ** 2) % 255
 
-	im = Image.new("RGB", (hight, width), (R,G,B))
+	im = Image.new("RGB", (height, width), (int(R),int(G),int(B)))
+
+
 	return numpy.array(im)
 
 

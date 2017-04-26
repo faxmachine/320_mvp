@@ -163,8 +163,8 @@ class MainGUI(BoxLayout):
             c.go(self.finished,int(self.stylenum))
             self.location = self.downloadtext.split('/')
             self.finishname = self.location[len(self.location)-1]
-            self.finishname = self.finishname.split('.')
-            self.addFinished(self.finishname)
+            self.finishname = self.finishname.split('.')[0]
+            self.addfinished(self.finishname)
 
 
 class MainGUIApp(App):
