@@ -9,7 +9,7 @@ from kivy.uix.popup import Popup
 from kivy.factory import Factory
 
 import inspect, os
-import subprocess
+import Controller as c
 
 
 Config.set('input', 'mouse', 'mouse, multitouch_on_demand')
@@ -159,7 +159,7 @@ class MainGUI(BoxLayout):
            # self.runvalid = False
         if(self.runvalid == True):
             self.finished = os.path.relpath(self.downloadtext,os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
-
+            c.go(self.finished,int(self.stylenum))
 
 
 class MainGUIApp(App):
