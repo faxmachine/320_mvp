@@ -4,7 +4,7 @@ import FrameGenerator2 as f2
 import Combine as c
 
 
-musicFilePath = "../test_data/MindsEye_-_This_or_That.mp3"
+# musicFilePath = "../test_data/MindsEye_-_This_or_That.mp3"
 framesPerSecond = 29
 m = 3
 
@@ -21,8 +21,10 @@ def go(musicFilePath, style):
 	print ("Generating Frames")
 
 	if style == 1:
+		print ("With Style 1")
 		frames = f1.GenerateAllFrames(features)
 	if style == 2:
+		print ("With Style 2")
 		frames = f2.GenerateAllFrames(features)
 
 	print ("Combining Frames With Music")
@@ -33,7 +35,6 @@ def go(musicFilePath, style):
 	if success is True:
 		print ("Video Successfully Created")
 
-go(musicFilePath, 2)
 
 
 
