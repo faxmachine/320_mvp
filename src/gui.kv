@@ -2,6 +2,7 @@
 #: import ListAdapter kivy.adapters.listadapter.ListAdapter
 #: import ListItemButton kivy.uix.listview.ListItemButton
 
+
 MainGUI:
 
 <MainGUI>:
@@ -130,3 +131,6 @@ MainGUI:
             Button:
                 text: "Load"
                 on_release: root.load(filechooser.path, filechooser.selection)
+
+<ListItemButton>:
+    selected_color: 0, 0.8, 1, 1

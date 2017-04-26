@@ -8,7 +8,8 @@ from kivy.config import Config
 from kivy.uix.popup import Popup
 from kivy.factory import Factory
 
-import os
+import inspect, os
+import subprocess
 
 
 Config.set('input', 'mouse', 'mouse, multitouch_on_demand')
@@ -32,10 +33,14 @@ class MainGUI(BoxLayout):
     exporttext = StringProperty()
     exportvalid = BooleanProperty()
     exportcolor = ListProperty()
+    exportlocation = ObjectProperty()
         #style properties
     stylenum = NumericProperty()
     stylename = StringProperty()
     stylecolor = ListProperty()
+        #finishing properties
+    runvalid = BooleanProperty()
+    finished = StringProperty()
 
     #constructor
     def __init__(self, **kwargs):
@@ -47,6 +52,7 @@ class MainGUI(BoxLayout):
         self.exporttext = "Export Location Here"
         self.exportvalid = False
         self.exportcolor = [0,0,0,1]
+        self.exportlocation = []
         self.stylenum = 0
         self.stylecolor =  [1,1,1,1]
     #end of constructor
@@ -64,8 +70,9 @@ class MainGUI(BoxLayout):
 
 
     #add to finished list
-    def addfinished(self, filename):
+    def addfinished(self, path, filename):
         self.download_list.adapter.data.extend([filename])
+        self.exportlocation.append(path)
     #end of add to finish list
 
     def dismiss_popup(self):
@@ -132,21 +139,29 @@ class MainGUI(BoxLayout):
         self.stylename = "Style 3"
         self.stylenum = 3
         self.stylecolor = [1,1,1,1]
-        self.addfinished("testing")
     #end of style buttons
 
 
     #Go button event
     def gopress(self):
+        self.runvalid = True
         if(self.stylenum == 0):
             self.stylename = "Please press a style"
             self.stylecolor = [1,0,0,1]
-        if(~self.downloadvalid):
+            self.runvalid = False
+        if(self.downloadvalid == False):
             self.downloadtext = "Please select a download location"
             self.downloadcolor = [1,0,0,1]
-        if(~self.exportvalid):
+            self.runvalid = False
+        if(self.exportvalid == False):
             self.exporttext = "Please selected an export location"
             self.exportcolor = [1,0,0,1]
+            self.runvalid = False
+        if(self.runvalid == True):
+            self.finished = os.path.relpath(self.downloadtext,os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
+            self.downloadtext = self.finished
+
+
 
 class MainGUIApp(App):
     def build(self):
