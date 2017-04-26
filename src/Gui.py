@@ -41,6 +41,8 @@ class MainGUI(BoxLayout):
         #finishing properties
     runvalid = BooleanProperty()
     finished = StringProperty()
+    finishname = StringProperty()
+    location = ListProperty()
 
     #constructor
     def __init__(self, **kwargs):
@@ -70,9 +72,8 @@ class MainGUI(BoxLayout):
 
 
     #add to finished list
-    def addfinished(self, path, filename):
+    def addfinished(self,  filename):
         self.download_list.adapter.data.extend([filename])
-        self.exportlocation.append(path)
     #end of add to finish list
 
     def dismiss_popup(self):
@@ -160,6 +161,10 @@ class MainGUI(BoxLayout):
         if(self.runvalid == True):
             self.finished = os.path.relpath(self.downloadtext,os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
             c.go(self.finished,int(self.stylenum))
+            self.location = self.downloadtext.split('/')
+            self.finishname = self.location[len(self.location)-1]
+            self.finishname = self.finishname.split('.')
+            self.addFinished(self.finishname)
 
 
 class MainGUIApp(App):

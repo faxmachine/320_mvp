@@ -90,11 +90,10 @@ MainGUI:
             text: "Finished Downloads Here"
 
         ListView:
-            size_hint_y: None
+            size_hint_y: 3
             id: download_list_view
             adapter:
-                ListAdapter(data=[], cls=main.DownloadList)
-            height: '400dp'
+                ListAdapter(data=["Song1","Song2","Song3"], cls=main.DownloadList)
         Button:
             size_hint_y: None
             text: "Launch Visual"
