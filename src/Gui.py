@@ -153,13 +153,12 @@ class MainGUI(BoxLayout):
             self.downloadtext = "Please select a download location"
             self.downloadcolor = [1,0,0,1]
             self.runvalid = False
-        if(self.exportvalid == False):
-            self.exporttext = "Please selected an export location"
-            self.exportcolor = [1,0,0,1]
-            self.runvalid = False
+        #if(self.exportvalid == False):
+         #   self.exporttext = "Please selected an export location"
+          #  self.exportcolor = [1,0,0,1]
+           # self.runvalid = False
         if(self.runvalid == True):
             self.finished = os.path.relpath(self.downloadtext,os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
-            self.downloadtext = self.finished
 
 
 
