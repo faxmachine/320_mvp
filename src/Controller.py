@@ -7,7 +7,7 @@ musicFilePath = "../test_data/MindsEye_-_This_or_That.mp3"
 framesPerSecond = 29
 m = 3
 
-
+# def Go(musicFilePath, style, ):
 
 # Parses the mp3 file and extracts features
 features = p.getSamples(musicFilePath, m)

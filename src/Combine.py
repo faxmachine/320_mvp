@@ -19,7 +19,9 @@ def createMP4(musicFilePath, frames, framesPerSecond):
 	string = strings[0]+".mp4"
 
 	# Writes the final video to local machine
-	finalClip.write_videofile(string, fps=framesPerSecond)
+	finalClip.write_videofile("videoLibrary/"+string, fps=framesPerSecond)
+
+	return True
 
 
 
