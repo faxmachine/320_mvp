@@ -173,7 +173,7 @@ class MainGUI(BoxLayout):
         #checks if download location and a style has been selected
         if(self.runable() == True):
             self.finished = os.path.relpath(self.downloadtext,os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
-            #c.go(self.finished,int(self.stylenum))
+            c.go(self.finished,int(self.stylenum))
             self.location = self.downloadtext.split('/')
             self.finishname = self.location[len(self.location)-1]
             self.finishname = self.finishname.split('.')[0]
