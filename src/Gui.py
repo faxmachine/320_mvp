@@ -112,10 +112,10 @@ class MainGUI(BoxLayout):
             self.downloadvalid = True
             self.downloadcolor = [0,0,0,1]
             #checks if the file is an mp3 file
-            if(self.downloadtext.rfind(".mp3") == -1):
-                self.downloadtext = 'NOT A VALID FILE(NEED .mp3 FILE)'
-                self.downloadvalid = False
-                self.downloadcolor = [1,0,0,1]
+            # if(self.downloadtext.rfind(".mp3") == -1):
+            #     self.downloadtext = 'NOT A VALID FILE(NEED .mp3 FILE)'
+            #     self.downloadvalid = False
+            #     self.downloadcolor = [1,0,0,1]
             self.dismiss_popup()
     #end of download click event
 
