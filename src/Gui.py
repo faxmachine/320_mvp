@@ -97,10 +97,12 @@ class MainGUI(BoxLayout):
             self.downloadtext = os.path.join(path,filename[0])
             self.downloadvalid = True
             self.downloadcolor = [0,0,0,1]
+            '''
             if(self.downloadtext.rfind(".mp3") == -1):
                 self.downloadtext = 'NOT A VALID FILE(NEED .mp3 FILE)'
                 self.downloadvalid = False
                 self.downloadcolor = [1,0,0,1]
+            '''
             self.dismiss_popup()
     #end of download click event
 
