@@ -1,5 +1,0 @@
-img0:
-red = cos(pi*sin(pi*cos(pi*sin(pi*cos(pi*y)))))*sin(pi*cos(pi*cos(pi*sin(pi*x)))*cos(pi*cos(pi*cos(pi*x))))
-green = cos(pi*sin(pi*sin(pi*sin(pi*y)))*sin(pi*x*sin(pi*y))*sin(pi*sin(pi*x*x)*cos(pi*sin(pi*y)))*sin(pi*sin(pi*cos(pi*sin(pi*x)))*x*sin(pi*x*x)))
-blue = cos(pi*sin(pi*x*cos(pi*sin(pi*x)*y)*cos(pi*x)))*sin(pi*sin(pi*x)*sin(pi*y)*sin(pi*cos(pi*sin(pi*y)))*sin(pi*y))
-
