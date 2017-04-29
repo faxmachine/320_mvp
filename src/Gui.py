@@ -9,7 +9,7 @@ from kivy.uix.popup import Popup
 from kivy.factory import Factory
 
 import inspect, os
-import Controller as c
+#import Controller as c
 
 
 Config.set('input', 'mouse', 'mouse, multitouch_on_demand')
@@ -69,6 +69,16 @@ class MainGUI(BoxLayout):
     def getdownloaditem(self):
         return self.downloadtext
     #end of get functions
+
+    #set functions for testing
+    def setstylenum(self, num):
+        if(num < 4 and num > -1):
+            self.stylenum = num
+
+    def setdownloadvalid(self, state):
+        if state is True or state is False:
+            self.downloadvalid = state
+    #end of set functions
 
 
     #add to finished song list
